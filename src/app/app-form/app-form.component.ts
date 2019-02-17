@@ -18,5 +18,8 @@ export class AppFormComponent implements OnInit {
       lastName:[]
     })
     }
-
+    onSubmit(form: FormGroup)
+    {
+      console.log(form);
+    }
 }
