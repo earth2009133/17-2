@@ -1,7 +1,22 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)"> 
-  <div><input type="text" formControlName="firstName" placeholder="first name"></div>
-  <div><input type="text" formControlName="lastName" placeholder="last name"></div>
-  <div><input type="text" formControlName="Email" placeholder="Email"></div>
-  <div><input type="text" formControlName="Age" placeholder="Age"></div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+  <div>
+    <input type="text" formControlName="firstName" placeholder="first name">
+    <label style="color: red" *ngIf="formGroup.get('firstName').invalid && formGroup.get('firstName').touched && formGroup.get('firstName').errors['required']">required</label>
+  </div>
+  <div>
+    <input type="text" formControlName="lastName" placeholder="last name">
+    <label style="color: red" *ngIf="formGroup.get('lastName').invalid && formGroup.get('lastName').touched && formGroup.get('lastName').errors['required']">required</label>
+  </div>
+  <div>
+    <input type="text" formControlName="Email" placeholder="Email">
+    <label style="color: red" *ngIf="formGroup.get('Email').invalid && formGroup.get('Email').touched && formGroup.get('Email').errors['Email']">Email is invalid.</label>
+
+  </div>
+  <div>
+    <input type="number" formControlName="Age" placeholder="Age">
+    <label style="color: red" *ngIf="formGroup.get('Age').invalid && formGroup.get('Age').touched && (formGroup.get('Age').errors['max'] || formGroup.get('Age').errors['min'])">required</label>
+
+  </div>
+
   <button>Submit</button>
 </form>

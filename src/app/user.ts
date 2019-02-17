@@ -3,6 +3,6 @@ export class User {
         public firstName:string,
         public lastName:string,
         public Email:string,
-        public Age:Int16Array
+        public Age:number
       ) { }
 }
